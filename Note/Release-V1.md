@@ -287,7 +287,7 @@ def get_weather(city: str) -> str:
 
 ```bash
 # 创建conda环境（推荐）
-conda create -n asuka python=3.11
+conda create -n asuka python=3.12
 conda activate asuka
 
 # 或使用venv
@@ -314,9 +314,7 @@ cp .env.example .env
 # OpenAI配置（支持兼容API）
 OPENAI_API_KEY=your_api_key_here
 OPENAI_BASE_URL=https://api.openai.com/v1
-
-# Anthropic配置
-ANTHROPIC_API_KEY=your_api_key_here
+OPENAI_MODEL=gpt-4o
 ```
 
 ### 4. 运行
@@ -397,41 +395,87 @@ You: 创建一个hello.txt文件，内容是"Hello World"
 
 ## 依赖说明
 
+### 运行环境
+
+- **Python版本**: 3.12.12
+- **包管理**: Conda + pip
+- **环境名称**: Asuka-Cli
+
 ### 核心依赖
 
 | 包名 | 版本 | 用途 |
 |------|------|------|
-| openai | >=1.0.0 | OpenAI API客户端 |
-| anthropic | >=0.18.0 | Anthropic API客户端 |
-| rich | >=13.0.0 | 终端美化输出 |
-| python-dotenv | >=1.0.0 | 环境变量管理 |
+| openai | 2.9.0 | OpenAI API客户端 |
+| anthropic | 0.75.0 | Anthropic API客户端 |
+| rich | 14.2.0 | 终端美化输出 |
+| python-dotenv | 1.2.1 | 环境变量管理 |
+| aiofiles | 25.1.0 | 异步文件操作 |
+| pydantic | 2.12.5 | 数据验证 |
 
-### 完整依赖列表
+### 完整Conda环境依赖
 
-```
-aiofiles==25.1.0
-annotated-types==0.7.0
-anthropic==0.75.0
-anyio==4.12.0
-certifi==2025.11.12
-colorama==0.4.6
-distro==1.9.0
-h11==0.16.0
-httpcore==1.0.9
-httpx==0.28.1
-idna==3.11
-jiter==0.12.0
-markdown-it-py==4.0.0
-mdurl==0.1.2
-openai==2.9.0
-pydantic==2.12.5
-pydantic_core==2.41.5
-Pygments==2.19.2
-python-dotenv==1.2.1
-rich==14.2.0
-sniffio==1.3.1
-tqdm==4.67.1
-typing_extensions==4.15.0
+以下是通过 `conda list` 获取的完整环境依赖：
+
+#### Python包 (pip安装)
+
+| 包名 | 版本 | 说明 |
+|------|------|------|
+| aiofiles | 25.1.0 | 异步文件I/O |
+| annotated-types | 0.7.0 | 类型注解扩展 |
+| anthropic | 0.75.0 | Anthropic Claude API |
+| anyio | 4.12.0 | 异步I/O库 |
+| certifi | 2025.11.12 | SSL证书 |
+| colorama | 0.4.6 | 终端颜色支持 |
+| distro | 1.9.0 | 系统信息检测 |
+| docstring-parser | 0.17.0 | 文档字符串解析 |
+| h11 | 0.16.0 | HTTP/1.1协议实现 |
+| httpcore | 1.0.9 | HTTP核心库 |
+| httpx | 0.28.1 | HTTP客户端 |
+| idna | 3.11 | 国际化域名 |
+| jiter | 0.12.0 | JSON解析器 |
+| markdown-it-py | 4.0.0 | Markdown解析 |
+| mdurl | 0.1.2 | URL解析 |
+| openai | 2.9.0 | OpenAI API |
+| pydantic | 2.12.5 | 数据验证框架 |
+| pydantic-core | 2.41.5 | Pydantic核心 |
+| pygments | 2.19.2 | 语法高亮 |
+| python-dotenv | 1.2.1 | 环境变量管理 |
+| rich | 14.2.0 | 终端美化 |
+| sniffio | 1.3.1 | 异步库检测 |
+| tqdm | 4.67.1 | 进度条 |
+| typing-extensions | 4.15.0 | 类型扩展 |
+| typing-inspection | 0.4.2 | 类型检查 |
+
+#### Conda基础包
+
+| 包名 | 版本 | 来源 |
+|------|------|------|
+| python | 3.12.12 | conda-forge |
+| pip | 25.3 | conda-forge |
+| setuptools | 80.9.0 | conda-forge |
+| wheel | 0.45.1 | conda-forge |
+| openssl | 3.6.0 | conda-forge |
+| ca-certificates | 2025.11.12 | conda-forge |
+| bzip2 | 1.0.8 | conda-forge |
+| libexpat | 2.7.3 | conda-forge |
+| libffi | 3.5.2 | conda-forge |
+| liblzma | 5.8.1 | conda-forge |
+| libsqlite | 3.51.1 | conda-forge |
+| libzlib | 1.3.1 | conda-forge |
+| tk | 8.6.13 | conda-forge |
+| tzdata | 2025b | conda-forge |
+| ucrt | 10.0.26100.0 | conda-forge |
+| vc | 14.3 | conda-forge |
+| vc14_runtime | 14.44.35208 | conda-forge |
+| vcomp14 | 14.44.35208 | conda-forge |
+
+### 快速安装
+
+```bash
+conda create -n Asuka-Cli python=3.12
+conda activate Asuka-Cli               
+pip install -r requirements.txt
+python main.py
 ```
 
 ---
@@ -482,5 +526,3 @@ typing_extensions==4.15.0
 MIT License
 
 ---
-
-*本文档随项目持续更新，最后更新时间：2024年12月11日*
