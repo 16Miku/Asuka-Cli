@@ -1,0 +1,12 @@
+# LLM APIs
+openai>=1.0.0
+anthropic>=0.18.0
+
+# CLI美化
+rich>=13.0.0
+
+# 环境变量管理
+python-dotenv>=1.0.0
+
+# 异步支持
+aiofiles>=23.0.0
