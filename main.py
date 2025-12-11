@@ -91,10 +91,10 @@ def main():
         
         # epilog: 帮助信息的结尾部分，通常放使用示例
         epilog="""
-示例:
-  python main.py                    # 启动交互式会话
-  python main.py -p anthropic       # 使用Claude模型
-  python main.py -c "列出当前目录"   # 执行单个命令
+        示例:
+        python main.py                    # 启动交互式会话
+        python main.py -p anthropic       # 使用Claude模型
+        python main.py -c "列出当前目录"   # 执行单个命令
         """
     )
     
